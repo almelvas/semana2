@@ -1,0 +1,51 @@
+-- Criação da tabela ATRIBUICAO
+CREATE TABLE ATRIBUICAO (
+    ID_Atribuicao NUMBER PRIMARY KEY,
+    ID_Colaborador NUMBER,
+    ID_Projeto NUMBER,
+    Data_Inicio DATE,
+    Data_Fim DATE,
+    FOREIGN KEY (ID_Colaborador) REFERENCES COLABORADOR(ID_Colaborador),
+    FOREIGN KEY (ID_Projeto) REFERENCES PROJETO(ID_Projeto)
+);
+
+-- Criação da tabela COLABORADOR
+CREATE TABLE COLABORADOR (
+    ID_Colaborador NUMBER PRIMARY KEY,
+    Nome VARCHAR(50),
+    ID_Departamento NUMBER,
+    ID_Papel NUMBER,
+    Data_Admissao DATE,
+    FOREIGN KEY (ID_Departamento) REFERENCES DEPARTAMENTO(ID_Departamento),
+    FOREIGN KEY (ID_Papel) REFERENCES PAPEL(ID_Papel)
+);
+
+-- Criação da tabela DEPARTAMENTO
+CREATE TABLE DEPARTAMENTO (
+    ID_Departamento NUMBER PRIMARY KEY,
+    Nome VARCHAR(50),
+    Localizacao VARCHAR(50)
+);
+
+-- Criação da tabela DEPENDENTE
+CREATE TABLE DEPENDENTE (
+    ID_Dependente NUMBER PRIMARY KEY,
+    ID_Colaborador NUMBER,
+    Nome VARCHAR(50),
+    Data_Nascimento DATE,
+    FOREIGN KEY (ID_Colaborador) REFERENCES COLABORADOR(ID_Colaborador)
+);
+
+-- Criação da tabela PAPEL
+CREATE TABLE PAPEL (
+    ID_Papel NUMBER PRIMARY KEY,
+    Nome VARCHAR(50)
+);
+
+-- Criação da tabela PROJETO
+CREATE TABLE PROJETO (
+    ID_Projeto NUMBER PRIMARY KEY,
+    Nome VARCHAR(50),
+    Data_Inicio DATE,
+    Data_Fim DATE
+);
