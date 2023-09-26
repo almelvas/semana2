@@ -1,0 +1,7 @@
+SELECT TEC, nome
+FROM departamento;
+
+
+
+
+

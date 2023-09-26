@@ -1,0 +1,11 @@
+SELECT 
+    c.nome as 'Valdeci Silva',
+    d.nome as 'Juliana Silva',
+    d.data_nascimento,
+    d.parentesco
+FROM colaborador c
+JOIN dependentes d ON c.id = d.id_colaborador;
+
+
+
+

@@ -1,0 +1,25 @@
+INSERT INTO colaboradores (nome, cargo, projeto)
+VALUES ('Valdeci Silva', 'Analista', 'BI');
+
+SET @id_colaborador = LAST_INSERT_ID();
+
+INSERT INTO telefones (id_colaborador, tipo, numero)
+VALUES 
+    (@id_colaborador, 'celular', '(11) 9 9888-1000'),
+    (@id_colaborador, 'residencial', '(11) 5666-4000');
+
+INSERT INTO emails (id_colaborador, tipo, endereco)
+VALUES 
+    (@id_colaborador, 'pessoal', 'vsilva@teste.com'),
+    (@id_colaborador, 'trabalho', 'val.silva@brh.com');
+
+INSERT INTO dependentes (id_colaborador, nome)
+VALUES 
+    (@id_colaborador, 'Ana Maria Silva'),
+    (@id_colaborador, 'Juliana Silva');
+
+
+
+
+
+
